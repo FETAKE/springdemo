@@ -13,6 +13,12 @@ pipeline {
             }
         }
 
+        stage('Checkout') {
+            steps {
+                git url: 'https://github.com/FETAKE/springdemo.git', branch: 'main', credentialsId: 'github-creds'
+            }
+        }
+
         stage('Build App') {
             steps {
                 sh './mvnw clean package -DskipTests'
