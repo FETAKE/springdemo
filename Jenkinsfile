@@ -19,11 +19,11 @@ pipeline {
             }
         }
 
-        stage('Build App') {
-            steps {
-                sh './mvnw clean package -DskipTests'
-            }
-        }
+        // stage('Build App') {
+        //     steps {
+        //         sh './mvnw clean package -DskipTests'
+        //     }
+        // }
 
         stage('Build Docker Image') {
             steps {
