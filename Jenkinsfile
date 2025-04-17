@@ -41,7 +41,7 @@ pipeline {
 
         stage('Deploy Container') {
             steps {
-                sh 'docker run -d -p 8080:8080 --name springboot-app $IMAGE_NAME'
+                sh 'docker run -d -p 8085:8080 --name springboot-app $IMAGE_NAME'
             }
         }
     }
