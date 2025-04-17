@@ -7,24 +7,17 @@ pipeline {
     }
 
     stages {
-        stage('Clone Repository') {
-            steps {
-                git url: 'https://github.com/FETAKE/springdemo.git'
-            }
-        }
-
         stage('Checkout') {
             steps {
                 git url: 'https://github.com/FETAKE/springdemo.git', branch: 'main', credentialsId: 'github-creds'
             }
         }
 
-        // stage('Build App') {
-        //     steps {
-                
-        //         sh 'mvn -B -DskipTests clean package' 
-        //     }
-        // }
+        stage('Build App') {
+            steps {
+                sh 'mvn -B -DskipTests clean package'
+            }
+        }
 
         stage('Build Docker Image') {
             steps {
